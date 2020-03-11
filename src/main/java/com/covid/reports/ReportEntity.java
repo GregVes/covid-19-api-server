@@ -35,6 +35,9 @@ public class ReportEntity {
         this.recovered = recovered;
     }
 
+    public int getId() {
+        return this.id;
+    }
     public String getProvince() {
         return this.province;
     }
@@ -52,6 +55,9 @@ public class ReportEntity {
     }
     public int getRecovered() {
         return this.recovered;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
     public void setProvince(String province) {
         this.province = province;

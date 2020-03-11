@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
-public class ReportsController {
+public class ReportController {
     @Autowired
-    private ReportsService service;
+    private ReportService service;
 
     @PostMapping("/reports")
     public @ResponseBody ReportEntity create(@RequestBody ReportEntity report) {
