@@ -1,6 +1,6 @@
 package com.covid.reports;
 
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +15,8 @@ public class ReportEntity {
     @NotNull
     private String country;
     @NotNull
-    private Date date;
+    @Column(unique = true)
+    private LocalDate date;
     @NotNull
     private int cases;
     @NotNull
@@ -25,7 +26,7 @@ public class ReportEntity {
 
     public ReportEntity() {}
 
-    public ReportEntity(String province, String country, Date date, int cases, int dead, int recovered) {
+    public ReportEntity(String province, String country, LocalDate date, int cases, int dead, int recovered) {
         this.province = province;
         this.country = country;
         this.date = date;
@@ -40,7 +41,7 @@ public class ReportEntity {
     public String getCountry() {
         return this.country;
     }
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
     public int getCases() {
@@ -58,7 +59,7 @@ public class ReportEntity {
     public void setCountry(String country) {
         this.country = country;
     }
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     public void setCases(int cases) {

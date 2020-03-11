@@ -13,7 +13,7 @@ public class ReportsController {
     private ReportsService service;
 
     @PostMapping("/reports")
-    public @ResponseBody ReportEntity create(@RequestBody ReportEntity caseReport) {
-        return service.createReport(caseReport);
+    public @ResponseBody ReportEntity create(@RequestBody ReportEntity report) {
+        return service.createReport(report);
     }
 }
