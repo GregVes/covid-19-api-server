@@ -31,8 +31,8 @@ public class ReportServiceTest {
         expectedReport.setId(id);
         doReturn(expectedReport).when(repository).save(input);
         // when 
-        ReportEntity actualProduct = service.createReport(input);
+        ReportEntity actualReport = service.createReport(input);
         // then
-        assertThat(actualProduct).isEqualTo(expectedReport);
+        assertThat(actualReport).isEqualTo(expectedReport);
     }    
 }
