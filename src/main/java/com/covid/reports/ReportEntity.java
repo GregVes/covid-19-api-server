@@ -16,26 +16,31 @@ public class ReportEntity {
     private String country;
     @NotNull
     @Column(unique = true)
-    private LocalDate date;
-    @NotNull
+    private LocalDate reportDate;
     private int cases;
-    @NotNull
     private int dead;
-    @NotNull
     private int recovered;
 
     public ReportEntity() {}
 
-    public ReportEntity(String province, String country, LocalDate date, int cases, int dead, int recovered) {
+    public ReportEntity(String province, String country, LocalDate reportDate, int cases, int dead, int recovered) {
         this.province = province;
         this.country = country;
-        this.date = date;
+        this.reportDate = reportDate;
         this.cases = cases;
         this.dead = dead;
         this.recovered = recovered;
     }
+    /*public ReportEntity(String province, String country, LocalDate reportDate, int cases, int dead, int recovered) {
+        this.province = province;
+        this.country = country;
+        this.reportDate = reportDate;
+        this.cases = cases;
+        this.dead = dead;
+        this.recovered = recovered;
+    }*/
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     public String getProvince() {
@@ -44,8 +49,8 @@ public class ReportEntity {
     public String getCountry() {
         return this.country;
     }
-    public LocalDate getDate() {
-        return this.date;
+    public LocalDate getReportDate() {
+        return this.reportDate;
     }
     public int getCases() {
         return this.cases;
@@ -56,7 +61,7 @@ public class ReportEntity {
     public int getRecovered() {
         return this.recovered;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public void setProvince(String province) {
@@ -65,8 +70,8 @@ public class ReportEntity {
     public void setCountry(String country) {
         this.country = country;
     }
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setReportDate(LocalDate reportDate) {
+        this.reportDate = reportDate;
     }
     public void setCases(int cases) {
         this.cases = cases;

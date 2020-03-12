@@ -22,17 +22,17 @@ public class ReportServiceTest {
         // given
         int id = 1;
         String country = "France";
-        LocalDate date = LocalDate.now();
+        LocalDate reportDate = LocalDate.now();
         int cases = 100;
         int dead = 100;
         int recovered = 100;
-        ReportEntity input = new ReportEntity("", country, date, cases, dead, recovered);
-        ReportEntity expectedReport = new ReportEntity("", country, date, cases, dead, recovered);
+        ReportEntity input = new ReportEntity("", country, reportDate, cases, dead, recovered);
+        ReportEntity expectedReport = new ReportEntity("", country, reportDate, cases, dead, recovered);
         expectedReport.setId(id);
         doReturn(expectedReport).when(repository).save(input);
         // when 
         ReportEntity actualReport = service.createReport(input);
         // then
         assertThat(actualReport).isEqualTo(expectedReport);
-    }    
+    }   
 }
