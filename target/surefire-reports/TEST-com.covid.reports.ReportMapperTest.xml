@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.covid.reports.ReportServiceTest" time="0.199" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.covid.reports.ReportMapperTest" time="0.071" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -50,6 +50,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="postAReport" classname="com.covid.reports.ReportServiceTest" time="0.022"/>
-  <testcase name="getReportsByCountry" classname="com.covid.reports.ReportServiceTest" time="0.005"/>
+  <testcase name="converToEntity" classname="com.covid.reports.ReportMapperTest" time="0.057"/>
+  <testcase name="convertToDto" classname="com.covid.reports.ReportMapperTest" time="0.01"/>
 </testsuite>

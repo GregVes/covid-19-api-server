@@ -16,40 +16,59 @@ public class ReportServiceTest {
     @Mock
     private ReportRepository repository;
 
+    @Mock
+    private ReportMapper mapper;
+
     @InjectMocks
     private ReportService service;
+
+    private String province = "foobar";
+    private String country = "France";
+    private int cases = 100;
+    private int dead = 100;
+    private int recovered = 100;
+    private int year = 2020;
+    private int month = 1;
+    private int day = 1;
 
     @Test
     public void postAReport() {
         // given
-        int id = 1;
-        String country = "France";
-        LocalDate reportDate = LocalDate.now();
-        int cases = 100;
-        int dead = 100;
-        int recovered = 100;
-        ReportEntity input = new ReportEntity("", country, reportDate, cases, dead, recovered);
-        ReportEntity expectedReport = new ReportEntity("", country, reportDate, cases, dead, recovered);
-        expectedReport.setId(id);
-        doReturn(expectedReport).when(repository).save(input);
+        ReportDto expectedDto = new ReportDto(province, country, "2020-01-02", cases, dead, recovered);
+        ReportEntity expectedEntity = new ReportEntity(province, country, LocalDate.of(year, month, day), cases, dead, recovered);
+        doReturn(expectedEntity).when(repository).save(expectedEntity);
+        doReturn(expectedEntity).when(mapper).toEntity(expectedDto);
+        doReturn(expectedDto).when(mapper).toDto(expectedEntity);
         // when 
-        ReportEntity actualReport = service.createReport(input);
+        ReportDto actualReport = service.createReport(expectedDto);
         // then
-        assertThat(actualReport).isEqualTo(expectedReport);
-    }   
+        assertThat(actualReport.getProvince()).isEqualTo(expectedDto.getProvince());
+    }
     @Test
-    public void getAllReportsByCountry() {
+    public void getReportsByCountry() {
         // given
-        ReportEntity report1 = new ReportEntity("", "Italy", LocalDate.of(20202,01,10), 100,100,100);
-        ReportEntity report2 = new ReportEntity("", "Italy", LocalDate.of(20202,01,11), 100,100,100);
-        List<ReportEntity> expectedReports = new ArrayList<ReportEntity>();
-        expectedReports.add(report1);
-        expectedReports.add(report2);
-        String country = "Italy";
-        doReturn(expectedReports).when(repository).findByCountry(country);
+        int year = 2020;
+        int month = 01;
+        int day = 01;
+        ReportDto report = new ReportDto(province, country, "2020-01-01", cases,dead,recovered);
+        List<ReportDto> expectedReports = new ArrayList<ReportDto>();
+        expectedReports.add(report);
+        String country = this.country;
+
+        ReportEntity reportEntityMock = new ReportEntity(province, country, LocalDate.of(year, month, day), cases, dead, recovered);
+        List<ReportEntity> entitiesMocks = new ArrayList<ReportEntity>();
+        entitiesMocks.add(reportEntityMock);
+        doReturn(entitiesMocks).when(repository).findByCountry(country);
+        doReturn(report).when(mapper).toDto(reportEntityMock);
         // when
-        List<ReportEntity> actualReports = service.getReportsByCountry(country);
+        List<ReportDto> actualReports = service.getReportsByCountry(country);
         // then 
         assertThat(Integer.valueOf(expectedReports.size())).isEqualTo(Integer.valueOf(actualReports.size()));
+        assertThat(expectedReports.get(0).getProvince()).isEqualTo(actualReports.get(0).getProvince());
+        assertThat(expectedReports.get(0).getCountry()).isEqualTo(actualReports.get(0).getCountry());
+        assertThat(expectedReports.get(0).getReportDate()).isEqualTo(actualReports.get(0).getReportDate());
+        assertThat(expectedReports.get(0).getCases()).isEqualTo(actualReports.get(0).getCases());
+        assertThat(expectedReports.get(0).getDead()).isEqualTo(actualReports.get(0).getDead());
+        assertThat(expectedReports.get(0).getRecovered()).isEqualTo(actualReports.get(0).getRecovered());
     }
 }

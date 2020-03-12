@@ -5,7 +5,8 @@ package com.covid.reports;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
+//import java.util.*;
+//import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/")
@@ -14,11 +15,17 @@ public class ReportController {
     private ReportService service;
 
     @PostMapping("/reports")
-    public @ResponseBody ReportEntity create(@RequestBody ReportEntity report) {
+    public @ResponseBody ReportDto create(@RequestBody ReportDto report) {
         return service.createReport(report);
     }
-    @GetMapping("/reports")
-    public @ResponseBody List<ReportEntity> getByCountry(@RequestParam String country) {
-        return service.getReportsByCountry(country);
-    }
+    /*@GetMapping("/reports")
+    public @ResponseBody int getBy(
+        @RequestParam(name="country", required=true) String country,
+        @RequestParam(name="date", required=false) String date,
+        @RequestParam(name="start", required=false) String start,
+        @RequestParam(name="end", required=false) String end
+    ) {
+        System.out.println(country + date + start + end);
+        return 1;
+    }*/
 }

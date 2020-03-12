@@ -35,14 +35,6 @@ public class ReportEntity {
         this.dead = dead;
         this.recovered = recovered;
     }
-    /*public ReportEntity(String province, String country, LocalDate reportDate, int cases, int dead, int recovered) {
-        this.province = province;
-        this.country = country;
-        this.reportDate = reportDate;
-        this.cases = cases;
-        this.dead = dead;
-        this.recovered = recovered;
-    }*/
 
     public Integer getId() {
         return this.id;

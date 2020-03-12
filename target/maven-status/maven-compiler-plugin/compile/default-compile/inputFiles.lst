@@ -1,5 +1,7 @@
 /home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportService.java
 /home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportEntity.java
+/home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportMapper.java
 /home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportRepository.java
 /home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportController.java
 /home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportApplication.java
+/home/greg/projects/covid_reports/covid-19-api-server/src/main/java/com/covid/reports/ReportDto.java
