@@ -7,6 +7,8 @@ import static org.mockito.Mockito.doReturn;
 import static org.assertj.core.api.Assertions.*;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 
 @SpringBootTest
 public class ReportServiceTest {
@@ -18,7 +20,7 @@ public class ReportServiceTest {
     private ReportService service;
 
     @Test
-    public void whenPost_returnReportWithId() {
+    public void postAReport() {
         // given
         int id = 1;
         String country = "France";
@@ -35,4 +37,19 @@ public class ReportServiceTest {
         // then
         assertThat(actualReport).isEqualTo(expectedReport);
     }   
+    @Test
+    public void getAllReportsByCountry() {
+        // given
+        ReportEntity report1 = new ReportEntity("", "Italy", LocalDate.of(20202,01,10), 100,100,100);
+        ReportEntity report2 = new ReportEntity("", "Italy", LocalDate.of(20202,01,11), 100,100,100);
+        List<ReportEntity> expectedReports = new ArrayList<ReportEntity>();
+        expectedReports.add(report1);
+        expectedReports.add(report2);
+        String country = "Italy";
+        doReturn(expectedReports).when(repository).findByCountry(country);
+        // when
+        List<ReportEntity> actualReports = service.getReportsByCountry(country);
+        // then 
+        assertThat(Integer.valueOf(expectedReports.size())).isEqualTo(Integer.valueOf(actualReports.size()));
+    }
 }

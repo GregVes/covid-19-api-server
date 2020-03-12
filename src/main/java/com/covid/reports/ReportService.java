@@ -1,7 +1,7 @@
 
 package com.covid.reports;
 
-//import java.util.List;
+import java.util.*;
 //import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +16,8 @@ public class ReportService {
 
     public ReportEntity createReport(ReportEntity report) {
         return (ReportEntity) repository.save(report);
+    }
+    public List<ReportEntity> getReportsByCountry(String country) {
+        return (List<ReportEntity>) repository.findByCountry(country);
     }
 }

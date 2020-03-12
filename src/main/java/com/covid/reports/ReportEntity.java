@@ -5,7 +5,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "reports")
+@Table(
+    name = "reports",
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"reportDate", "country"})
+    }
+)
 public class ReportEntity {
 
     @Id
@@ -15,7 +20,6 @@ public class ReportEntity {
     @NotNull
     private String country;
     @NotNull
-    @Column(unique = true)
     private LocalDate reportDate;
     private int cases;
     private int dead;
