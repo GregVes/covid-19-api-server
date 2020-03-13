@@ -4,9 +4,20 @@ package com.covid.reports;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 import java.util.*;
 //import java.time.LocalDate;
 
+@Api(value = "ReportController" , tags = {"Report Controller"})
+@SwaggerDefinition(tags = {
+    @Tag(name = "Report Controller",
+    description = "Controller operating on Reports resources"
+    )
+})
 @RestController
 @RequestMapping("/")
 public class ReportController {
