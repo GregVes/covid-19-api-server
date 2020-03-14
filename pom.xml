@@ -14,9 +14,12 @@
 	<name>reports</name>
 	<description>API server for the COVID-19 daily case reports</description>
 
+	<!--
 	<properties>
 		<java.version>1.3</java.version>
 	</properties>
+
+	 -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
