@@ -4,3 +4,5 @@ This is a Java/Spring Boot server that manages daily reports of COVID-19 cases r
 
 *original data source is the Johns Hopkins University Center for Systems Science and Engineering's [data repository](https://github.com/CSSEGISandData/COVID-19).
 
+API documentation can be found [here](https://covid-api-server.herokuapp.com/swagger-ui.html#/).
+
