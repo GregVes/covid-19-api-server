@@ -83,7 +83,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.2.5.RELEASE</version>
     			<configuration>
-        			<mainClass>com.covid.Main</mainClass>
+        			<mainClass>com.covid.report.sMain</mainClass>
     			</configuration>
     		<executions>
         		<execution>
