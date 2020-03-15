@@ -1,0 +1,8 @@
+com/covid/reports/ReportApplication.class
+com/covid/reports/ReportRepository.class
+com/covid/reports/ReportDto.class
+com/covid/reports/ReportEntity.class
+com/covid/reports/ReportService.class
+com/covid/reports/ReportController.class
+com/covid/reports/SwaggerConfig.class
+com/covid/reports/ReportMapper.class

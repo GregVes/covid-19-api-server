@@ -19,6 +19,7 @@ public class ReportService {
     //private Optional<ReportEntity> report;
 
     public ReportDto createReport(ReportDto reportDto) {
+        System.out.println(reportDto.getCountry());
         ReportEntity reportEntity = mapper.toEntity(reportDto);
         reportEntity = repository.save(reportEntity);
         reportDto = mapper.toDto(reportEntity);
