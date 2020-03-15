@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.covid.reports.ReportApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.126 s - in com.covid.reports.ReportApplicationTests

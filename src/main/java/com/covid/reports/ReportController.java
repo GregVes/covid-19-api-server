@@ -52,4 +52,8 @@ public class ReportController {
             return service.getReportsByCountryAndRange(country, start, end);
         }
     }
+    @GetMapping("/reports/countries")
+    public @ResponseBody List<String> getCountries() {
+        return service.getReportsCountries();
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootTest
 public class ReportServiceTest {
@@ -32,7 +33,7 @@ public class ReportServiceTest {
     private int day = 1;
 
     @Test
-    public void postAReport() {
+    public void postReport() {
         // given
         ReportDto expectedDto = new ReportDto(province, country, "2020-01-02", cases, dead, recovered);
         ReportEntity expectedEntity = new ReportEntity(province, country, LocalDate.of(year, month, day), cases, dead, recovered);
@@ -45,7 +46,7 @@ public class ReportServiceTest {
         assertThat(actualReport.getProvince()).isEqualTo(expectedDto.getProvince());
     }
     @Test
-    public void getReportsByCountry() {
+    public void getReportsListByCountry() {
         // given
         int year = 2020;
         int month = 01;
@@ -70,5 +71,15 @@ public class ReportServiceTest {
         assertThat(expectedReports.get(0).getCases()).isEqualTo(actualReports.get(0).getCases());
         assertThat(expectedReports.get(0).getDead()).isEqualTo(actualReports.get(0).getDead());
         assertThat(expectedReports.get(0).getRecovered()).isEqualTo(actualReports.get(0).getRecovered());
+    }
+    @Test
+    public void getCitiesList() {
+        // given 
+        List<String> expectedCities = Arrays.asList("France", "Germany", "Italy", "Spain");
+        doReturn(expectedCities).when(repository).findCities();
+        // when 
+        List<String> actualCities = service.getReportsCountries();
+        // then 
+        assertThat(expectedCities).isEqualTo(actualCities);
     }
 }

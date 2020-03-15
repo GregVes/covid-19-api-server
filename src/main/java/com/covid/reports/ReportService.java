@@ -19,7 +19,6 @@ public class ReportService {
     //private Optional<ReportEntity> report;
 
     public ReportDto createReport(ReportDto reportDto) {
-        System.out.println(reportDto.getCountry());
         ReportEntity reportEntity = mapper.toEntity(reportDto);
         reportEntity = repository.save(reportEntity);
         reportDto = mapper.toDto(reportEntity);
@@ -60,5 +59,8 @@ public class ReportService {
             .map(reportEntity -> mapper.toDto(reportEntity))
             .collect(Collectors.toList());
         return reportsDtos;
+    }
+    public List<String> getReportsCountries() {
+        return (List<String>)repository.findCities();
     }
 }

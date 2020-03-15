@@ -20,4 +20,7 @@ public interface ReportRepository extends JpaRepository<ReportEntity, Integer> {
 
     @Query(value="SELECT * FROM reports WHERE country = ?1 AND report_date >= ?2", nativeQuery=true)
     List<ReportEntity> findByCountryAndFromDate(String country, LocalDate start);
+
+    @Query(value="SELECT DISTINCT country FROM reports", nativeQuery=true)
+    List<String> findCities();
 }
