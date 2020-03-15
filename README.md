@@ -16,7 +16,7 @@ https://covid-api-server.herokuapp.com/reports?country=Germany&date=2020-03-05
 ```
 By country and from a specific date
 ```
-https://covid-api-server.herokuapp.com/reports?country=Mainland%20&start=2020-02-25
+https://covid-api-server.herokuapp.com/reports?country=Mainland%20China&start=2020-02-25
 ```
 By country and between a range of dates
 ```
