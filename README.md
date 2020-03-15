@@ -6,3 +6,5 @@ This is a Java/Spring Boot server that manages daily reports of COVID-19 cases r
 
 API documentation can be found [here](https://covid-api-server.herokuapp.com/swagger-ui.html#/).
 
+Example: https://covid-api-server.herokuapp.com/reports?country=Italy&start=2020-03-10&end=2020-03-13
+
