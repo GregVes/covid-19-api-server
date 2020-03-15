@@ -6,19 +6,23 @@ This is a Java/Spring Boot server that manages daily reports of COVID-19 cases r
 
 API documentation can be found [here](https://covid-api-server.herokuapp.com/swagger-ui.html#/).
 
-By country
+GET/ countries list
+```
+https://covid-api-server.herokuapp.com/reports/countries
+```
+GET/ by country
 ```
 https://covid-api-server.herokuapp.com/reports?country=Spain
 ```
-By country and for a specific date
+GET/ by country and for a specific date
 ```
 https://covid-api-server.herokuapp.com/reports?country=Germany&date=2020-03-05
 ```
-By country and from a specific date
+GET/ by country and from a specific date
 ```
 https://covid-api-server.herokuapp.com/reports?country=Mainland%20China&start=2020-02-25
 ```
-By country and between a range of dates
+GET/ by country and between a range of dates
 ```
 https://covid-api-server.herokuapp.com/reports?country=Italy&start=2020-03-10&end=2020-03-13
 ```
