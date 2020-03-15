@@ -10,7 +10,7 @@ By country
 ```
 https://covid-api-server.herokuapp.com/reports?country=Spain
 ```
-By country and  a specific date
+By country and for a specific date
 ```
 https://covid-api-server.herokuapp.com/reports?country=Germany&date=2020-03-05
 ```
@@ -18,7 +18,7 @@ By country and from a specific date
 ```
 https://covid-api-server.herokuapp.com/reports?country=Mainland%20&start=2020-02-25
 ```
-By country and from a range of dates
+By country and between a range of dates
 ```
 https://covid-api-server.herokuapp.com/reports?country=Italy&start=2020-03-10&end=2020-03-13
 ```
