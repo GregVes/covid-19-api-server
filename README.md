@@ -13,11 +13,10 @@ Currently working on a [React frontend](https://github.com/GregVes/covid-19-repo
 GET/ countries list
 ```
 https://covid-api-server.herokuapp.com/reports/countries
-
+```
 GET/ country's latest report
 ```
 https://covid-api-server.herokuapp.com/reports/:country/latest
-
 ```
 GET/ by country
 ```
