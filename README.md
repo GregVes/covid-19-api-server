@@ -6,7 +6,7 @@ This is a Java/Spring Boot server that manages daily reports of COVID-19 cases r
 
 API documentation can be found [here](https://covid-api-server.herokuapp.com/swagger-ui.html#/).
 
-Currently working on a React frontend [here](https://github.com/GregVes/covid-19-reports-web-app).
+Currently working on a [React frontend](https://github.com/GregVes/covid-19-reports-web-app).
 
 # Requests examples
 
