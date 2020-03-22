@@ -16,11 +16,10 @@ public class ReportService {
     private ReportRepository repository;
     @Autowired 
     private ReportMapper mapper;
-    //private Optional<ReportEntity> report;
 
     public ReportDto createReport(ReportDto reportDto) {
         ReportEntity reportEntity = mapper.toEntity(reportDto);
-        reportEntity = repository.save(reportEntity);
+        reportEntity = repository.postReport(reportEntity.getCountry(), reportEntity.getReportDate(), reportEntity.getCases(), reportEntity.getDead(), reportEntity.getRecovered());
         reportDto = mapper.toDto(reportEntity);
         return reportDto;
     }
@@ -62,5 +61,10 @@ public class ReportService {
     }
     public List<String> getReportsCountries() {
         return (List<String>)repository.findCities();
+    }
+    public ReportDto getLatestReport(String country) {
+        ReportEntity reportEntity = (ReportEntity)repository.findLatestReport(country);
+        ReportDto reportDto = mapper.toDto(reportEntity);
+        return reportDto;
     }
 }

@@ -10,7 +10,6 @@ public class ReportMapper {
 
     public ReportEntity toEntity(ReportDto dto) {
         return new ReportEntity(
-            dto.getProvince(),
             dto.getCountry(),
             LocalDate.parse(dto.getReportDate()),
             dto.getCases(),
@@ -20,7 +19,6 @@ public class ReportMapper {
     }
     public ReportDto toDto(ReportEntity entity) {
         return new ReportDto(
-            entity.getProvince(),
             entity.getCountry(),
             entity.getReportDate().toString(),
             entity.getCases(),
@@ -28,4 +26,5 @@ public class ReportMapper {
             entity.getRecovered()
         );
     }
+
 }

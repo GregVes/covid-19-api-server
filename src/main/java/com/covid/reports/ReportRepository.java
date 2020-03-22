@@ -9,6 +9,19 @@ import java.time.LocalDate;
 @Repository
 public interface ReportRepository extends JpaRepository<ReportEntity, Integer> {
 
+
+    @Query(value=
+    "INSERT INTO reports(country, report_date, cases, dead, recovered) "
+    + 
+    "VALUES(?1,?2,?3,?4,?5)"
+    +
+    "ON CONFLICT (country,report_date) DO UPDATE SET "
+    +
+    "cases = reports.cases + ?3, dead = reports.dead + ?4, recovered = reports.recovered + ?5 returning *"
+     
+     , nativeQuery=true)
+    ReportEntity postReport(String country, LocalDate date, int cases, int dead, int recovered);
+
     @Query(value="SELECT * FROM reports WHERE country = ?1", nativeQuery=true)
     List<ReportEntity> findByCountry(String country);
 
@@ -23,4 +36,7 @@ public interface ReportRepository extends JpaRepository<ReportEntity, Integer> {
 
     @Query(value="SELECT DISTINCT country FROM reports", nativeQuery=true)
     List<String> findCities();
+
+    @Query(value="SELECT * FROM reports WHERE country = ?1 AND report_date = CURRENT_DATE-1", nativeQuery=true)
+    ReportEntity findLatestReport(String country);
 }

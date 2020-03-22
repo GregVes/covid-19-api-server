@@ -1,13 +1,12 @@
 package com.covid.reports;
 
-//import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.*;
 //import java.time.LocalDate;
@@ -18,12 +17,14 @@ import java.util.*;
     description = "Controller operating on Reports resources"
     )
 })
+@CrossOrigin
 @RestController
 @RequestMapping("/")
 public class ReportController {
     @Autowired
     private ReportService service;
 
+    @ApiIgnore
     @PostMapping("/reports")
     public @ResponseBody ReportDto createReport(@RequestBody ReportDto report) {
         return service.createReport(report);
@@ -53,7 +54,11 @@ public class ReportController {
         }
     }
     @GetMapping("/reports/countries")
-    public @ResponseBody List<String> getCountries() {
+    public @ResponseBody List<String> getReportsCountries() {
         return service.getReportsCountries();
+    }
+    @GetMapping("/reports/{country}/latest")
+    public @ResponseBody ReportDto getCountryLatestReport(@PathVariable String country) {
+        return service.getLatestReport(country);
     }
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Table(
     name = "reports",
     uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"province", "reportDate", "country"})
+        @UniqueConstraint(columnNames = {"reportDate", "country"})
     }
 )
 public class ReportEntity {
@@ -16,7 +16,6 @@ public class ReportEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String province;
     @NotNull
     private String country;
     @NotNull
@@ -27,20 +26,15 @@ public class ReportEntity {
 
     public ReportEntity() {}
 
-    public ReportEntity(String province, String country, LocalDate reportDate, int cases, int dead, int recovered) {
-        this.province = province;
+    public ReportEntity(String country, LocalDate reportDate, int cases, int dead, int recovered) {
         this.country = country;
         this.reportDate = reportDate;
         this.cases = cases;
         this.dead = dead;
         this.recovered = recovered;
     }
-
     public Integer getId() {
         return this.id;
-    }
-    public String getProvince() {
-        return this.province;
     }
     public String getCountry() {
         return this.country;
@@ -59,9 +53,6 @@ public class ReportEntity {
     }
     public void setId(Integer id) {
         this.id = id;
-    }
-    public void setProvince(String province) {
-        this.province = province;
     }
     public void setCountry(String country) {
         this.country = country;
