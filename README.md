@@ -8,6 +8,8 @@ API documentation can be found [here](https://covid-api-server.herokuapp.com/swa
 
 Currently working on a React frontend [here](https://github.com/GregVes/covid-19-reports-web-app).
 
+# Requests examples
+
 GET/ countries list
 ```
 https://covid-api-server.herokuapp.com/reports/countries
