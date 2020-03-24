@@ -22,16 +22,14 @@ public class ReportEntity {
     private LocalDate reportDate;
     private int cases;
     private int dead;
-    private int recovered;
 
     public ReportEntity() {}
 
-    public ReportEntity(String country, LocalDate reportDate, int cases, int dead, int recovered) {
+    public ReportEntity(String country, LocalDate reportDate, int cases, int dead) {
         this.country = country;
         this.reportDate = reportDate;
         this.cases = cases;
         this.dead = dead;
-        this.recovered = recovered;
     }
     public Integer getId() {
         return this.id;
@@ -48,9 +46,6 @@ public class ReportEntity {
     public int getDead() {
         return this.dead;
     }
-    public int getRecovered() {
-        return this.recovered;
-    }
     public void setId(Integer id) {
         this.id = id;
     }
@@ -65,8 +60,5 @@ public class ReportEntity {
     }
     public void setDead(int dead) {
         this.dead = dead;
-    }
-    public void setRecovered(int recovered) {
-        this.recovered = recovered;
     }
 }

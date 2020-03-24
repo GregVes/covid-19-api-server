@@ -13,8 +13,7 @@ public class ReportMapper {
             dto.getCountry(),
             LocalDate.parse(dto.getReportDate()),
             dto.getCases(),
-            dto.getDead(),
-            dto.getRecovered()
+            dto.getDead()
             );
     }
     public ReportDto toDto(ReportEntity entity) {
@@ -22,8 +21,7 @@ public class ReportMapper {
             entity.getCountry(),
             entity.getReportDate().toString(),
             entity.getCases(),
-            entity.getDead(),
-            entity.getRecovered()
+            entity.getDead()
         );
     }
 

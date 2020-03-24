@@ -1,4 +1,4 @@
-/*package com.covid.reports;
+package com.covid.reports;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,7 +26,6 @@ public class ReportServiceTest {
     private String country = "France";
     private int cases = 100;
     private int dead = 100;
-    private int recovered = 100;
     private int year = 2020;
     private int month = 1;
     private int day = 1;
@@ -34,9 +33,9 @@ public class ReportServiceTest {
     @Test
     public void postReport() {
         // given
-        ReportDto expectedDto = new ReportDto(country, "2020-01-02", cases, dead, recovered);
-        ReportEntity expectedEntity = new ReportEntity(country, LocalDate.of(year, month, day), cases, dead, recovered);
-        doReturn(expectedEntity).when(repository).save(expectedEntity);
+        ReportDto expectedDto = new ReportDto(country, "2020-01-02", cases, dead);
+        ReportEntity expectedEntity = new ReportEntity(country, LocalDate.of(year, month, day), cases, dead);
+        doReturn(expectedEntity).when(repository).postReport(country, LocalDate.of(year, month, day), cases, dead);
         doReturn(expectedEntity).when(mapper).toEntity(expectedDto);
         doReturn(expectedDto).when(mapper).toDto(expectedEntity);
         // when 
@@ -50,12 +49,12 @@ public class ReportServiceTest {
         int year = 2020;
         int month = 01;
         int day = 01;
-        ReportDto report = new ReportDto(country, "2020-01-01", cases,dead,recovered);
+        ReportDto report = new ReportDto(country, "2020-01-01", cases,dead);
         List<ReportDto> expectedReports = new ArrayList<ReportDto>();
         expectedReports.add(report);
         String country = this.country;
 
-        ReportEntity reportEntityMock = new ReportEntity(country, LocalDate.of(year, month, day), cases, dead, recovered);
+        ReportEntity reportEntityMock = new ReportEntity(country, LocalDate.of(year, month, day), cases, dead);
         List<ReportEntity> entitiesMocks = new ArrayList<ReportEntity>();
         entitiesMocks.add(reportEntityMock);
         doReturn(entitiesMocks).when(repository).findByCountry(country);
@@ -68,16 +67,15 @@ public class ReportServiceTest {
         assertThat(expectedReports.get(0).getReportDate()).isEqualTo(actualReports.get(0).getReportDate());
         assertThat(expectedReports.get(0).getCases()).isEqualTo(actualReports.get(0).getCases());
         assertThat(expectedReports.get(0).getDead()).isEqualTo(actualReports.get(0).getDead());
-        assertThat(expectedReports.get(0).getRecovered()).isEqualTo(actualReports.get(0).getRecovered());
     }
     @Test
-    public void getCitiesList() {
+    public void getCountriesList() {
         // given 
         List<String> expectedCities = Arrays.asList("France", "Germany", "Italy", "Spain");
-        doReturn(expectedCities).when(repository).findCities();
+        doReturn(expectedCities).when(repository).findCountries();
         // when 
-        List<String> actualCities = service.getReportsCountries();
+        List<String> actualCities = service.getCountryReports();
         // then 
         assertThat(expectedCities).isEqualTo(actualCities);
     }
-}*/
+}

@@ -55,7 +55,7 @@ public class ReportController {
     }
     @GetMapping("/reports/countries")
     public @ResponseBody List<String> getReportsCountries() {
-        return service.getReportsCountries();
+        return service.getCountryReports();
     }
     @GetMapping("/reports/{country}/latest")
     public @ResponseBody ReportDto getCountryLatestReport(@PathVariable String country) {

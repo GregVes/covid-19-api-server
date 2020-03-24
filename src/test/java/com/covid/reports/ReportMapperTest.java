@@ -1,4 +1,4 @@
-/*package com.covid.reports;
+package com.covid.reports;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
@@ -12,14 +12,13 @@ public class ReportMapperTest {
     private String reportDate = "2020-01-01";
     private int cases = 10;
     private int dead = 10;
-    private int recovered = 10;
     private ReportMapper reportMapper = new ReportMapper();
 
     @Test
     public void convertToDto() {
         // given
-        ReportEntity reportEntity = new ReportEntity(country, LocalDate.of(2020,01,01), cases, dead, recovered);
-        ReportDto expectedReportDto = new ReportDto(country, reportDate, cases, dead, recovered);
+        ReportEntity reportEntity = new ReportEntity(country, LocalDate.of(2020,01,01), cases, dead);
+        ReportDto expectedReportDto = new ReportDto(country, reportDate, cases, dead);
         // when
         ReportDto actualReportDto = reportMapper.toDto(reportEntity);
         // then 
@@ -27,13 +26,12 @@ public class ReportMapperTest {
         assertThat(expectedReportDto.getReportDate()).isEqualTo(actualReportDto.getReportDate());
         assertThat(expectedReportDto.getCases()).isEqualTo(actualReportDto.getCases());
         assertThat(expectedReportDto.getDead()).isEqualTo(actualReportDto.getDead());
-        assertThat(expectedReportDto.getRecovered()).isEqualTo(actualReportDto.getRecovered());
     }
     @Test
     public void converToEntity() {
         // given
-        ReportDto reportDto = new ReportDto(country, reportDate, cases, dead, recovered);
-        ReportEntity expectedReportEntity = new ReportEntity(country, LocalDate.of(2020,01,01), cases, dead, recovered);
+        ReportDto reportDto = new ReportDto(country, reportDate, cases, dead);
+        ReportEntity expectedReportEntity = new ReportEntity(country, LocalDate.of(2020,01,01), cases, dead);
         // when 
         ReportEntity actualReportEntity = reportMapper.toEntity(reportDto);
         // then
@@ -41,6 +39,5 @@ public class ReportMapperTest {
         assertThat(expectedReportEntity.getReportDate()).isEqualTo(actualReportEntity.getReportDate());
         assertThat(expectedReportEntity.getCases()).isEqualTo(actualReportEntity.getCases());
         assertThat(expectedReportEntity.getDead()).isEqualTo(actualReportEntity.getDead());
-        assertThat(expectedReportEntity.getRecovered()).isEqualTo(actualReportEntity.getRecovered());
     }
-}*/
+}

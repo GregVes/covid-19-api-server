@@ -4,7 +4,6 @@ package com.covid.reports;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
-//import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ public class ReportService {
 
     public ReportDto createReport(ReportDto reportDto) {
         ReportEntity reportEntity = mapper.toEntity(reportDto);
-        reportEntity = repository.postReport(reportEntity.getCountry(), reportEntity.getReportDate(), reportEntity.getCases(), reportEntity.getDead(), reportEntity.getRecovered());
+        reportEntity = repository.postReport(reportEntity.getCountry(), reportEntity.getReportDate(), reportEntity.getCases(), reportEntity.getDead());
         reportDto = mapper.toDto(reportEntity);
         return reportDto;
     }
@@ -59,8 +58,8 @@ public class ReportService {
             .collect(Collectors.toList());
         return reportsDtos;
     }
-    public List<String> getReportsCountries() {
-        return (List<String>)repository.findCities();
+    public List<String> getCountryReports() {
+        return (List<String>)repository.findCountries();
     }
     public ReportDto getLatestReport(String country) {
         ReportEntity reportEntity = (ReportEntity)repository.findLatestReport(country);
